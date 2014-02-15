@@ -21,10 +21,6 @@ public class LoginServ extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-	}
-
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
 		String value;
 		PrintWriter writer = response.getWriter();
 		String username = request.getParameter("username");
@@ -41,6 +37,16 @@ public class LoginServ extends HttpServlet {
 																			// profile
 																			// or
 																			// retry
+	}
+
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter writer = response.getWriter();
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		String email = request.getParameter("email");
+		
+		writer.print("<html><body>Return: " + email + "</body></html>");
 	}
 
 	private boolean login(String username, String password) {
