@@ -24,18 +24,15 @@ public class Main {
 			Session session = HibernateSessionFactory.currentSession();
 			Transaction tx = session.beginTransaction();
 
-			Person p1 = new Person("Max", "Mustermann", "Musterstrasse", 7,
-					"06222111333", "max.mustermann@abc.de", "0172111222");
+			Person p1 = new Person("Max", "Mustermann","max.mustermann@abc.de");
 			Account a1 = new Account("max", "test", p1);
 		
 			
-			Person p2 = new Person("Udo", "Mix", "Teststrasse", 12,
-					"06222111333", "udo.mix@abc.de", "0172111222");
+			Person p2 = new Person("Udo", "Mix","udo.mix@abc.de");
 			Account a2= new Account("udo", "tutu", p2);
 		
 			
-			Person p3 = new Person("Jürgen", "Mayer", "Blumenstrasse", 15,
-					"06222111333", "juergen.mayer@abc.de", "0172111222");
+			Person p3 = new Person("Jürgen", "Mayer","juergen.mayer@abc.de");
 			Account a3= new Account("juergen", "tata", p3);
 			
 			session.saveOrUpdate(p3);

@@ -6,61 +6,55 @@ import javax.persistence.*;
 @Table(name ="person")
 public class Person {
 
-	private int id;
-	private String firstName;
-	private String lastName;
+	private String firstname;
+	private String lastname;
 	private String street;
-	private int houseNumber;
+	private int housenumber;
 	private String tel;
 	private String email;
 	private String mobile;
-	private Account account;
+	//private Account account;
 
 	public Person() {
 
 	}
 
-	public Person(String firstName, String lastName, String street,
-			int houseNumber, String tel, String email, String mobile) {
+	public Person(String firstName, String lastName,String email) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.street = street;
-		this.houseNumber = houseNumber;
-		this.tel = tel;
+		this.firstname = firstName;
+		this.lastname = lastName;
 		this.email = email;
-		this.mobile = mobile;
 		//this.account = account;
 	}
 	
 	@Id
-	@Column(name="id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public int getId() {
-		return id;
+	@Column(name="email")
+	public String getEmail() {
+		return email;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setEmail(String email) {
+		this.email = email;
 	}
+
 	
 	@Column(name="firstname")
 	public String getFirstName() {
-		return firstName;
+		return firstname;
 	}
 
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+		this.firstname = firstName;
 	}
 	
 	
 	@Column(name="lastname")
 	public String getLastName() {
-		return lastName;
+		return lastname;
 	}
 
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		this.lastname = lastName;
 	}
 	
 	@Column(name="street")
@@ -74,11 +68,11 @@ public class Person {
 	
 	@Column(name="housenumber")
 	public int getHouseNumber() {
-		return houseNumber;
+		return housenumber;
 	}
 
 	public void setHouseNumber(int houseNumber) {
-		this.houseNumber = houseNumber;
+		this.housenumber = houseNumber;
 	}
 	
 	@Column(name="tel")
@@ -90,14 +84,7 @@ public class Person {
 		this.tel = tel;
 	}
 	
-	@Column(name="email")
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	
 	
 	@Column(name="mobile")
 	public String getMobile() {
@@ -109,19 +96,19 @@ public class Person {
 	}
 	
 	
-	@OneToOne(mappedBy = "person",cascade = CascadeType.ALL)
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
-	}
+//	@OneToOne(mappedBy = "person",cascade = CascadeType.ALL)
+//	public Account getAccount() {
+//		return account;
+//	}
+//
+//	public void setAccount(Account account) {
+//		this.account = account;
+//	}
 
 	@Override
 	public String toString() {
-		return "Person [firstName=" + firstName + ", lastName=" + lastName
-				+ ", street=" + street + ", houseNumber=" + houseNumber
+		return "Person [firstName=" + firstname + ", lastName=" + lastname
+				+ ", street=" + street + ", houseNumber=" + housenumber
 				+ ", tel=" + tel + ", email=" + email + ", mobile=" + mobile
 				+ "]";
 	}

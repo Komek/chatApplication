@@ -64,7 +64,7 @@ public class Account implements Comparable<Account> {
 //		}
 //	}
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinColumn(name = "fk_person")
 	public Person getPerson() {
 		return person;
@@ -76,7 +76,7 @@ public class Account implements Comparable<Account> {
 
 	public String toString() {
 		return "Account [username=" + username + ", password=" + password
-				+ ", person=" + person.getId() + "]";
+				+ ", person=" + person.getEmail() + "]";
 	}
 
 	public int compareTo(Account o) {
